@@ -3,6 +3,7 @@ This repository contains materials for a workshop on graphs given at the Recurse
 
 ## Running the tests
 Enter your solutions for the two examples discussed in class in the files `paint_your_solution.py` and `squares_your_solution.py`. Run `paint_tests.py` and `squares_tests.py` to check your answers. A couple notes:
+
 1. Feel free to adjust the params in the testing code to run more / less test cases
 2. Test cases are randomly generated at runtime, so it won't be the same tests each time. If you want to ensure the same tests are run, feel free to seed the random number generator in `gentests.py` to a constant of your choosing.
 
