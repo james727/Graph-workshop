@@ -11,13 +11,12 @@ def lifeguard_within_k_steps( pool, starting_coords, k ):
     visited = set()
 
     while len( queue ) != 0:
-
-        current_distance, current_location = queue.pop( 0 )
+        current_distance, current_location = queue.pop( 0 ) # inefficient, should use deque
         if current_distance > k: return False # if we've gone more than k steps, fail
         if pool[ current_location[ 0 ] ][ current_location[ 1 ] ] == "L": return True
 
         potential_neighbors = get_neighbors( current_location, pool )
-        unvisited_neighbors = filter( lambda x: x not in visited, potential_neighbors)
+        unvisited_neighbors = [ n for n in potential_neighbors if n not in visited ]
 
         for neighbor in unvisited_neighbors:
             queue.append( ( current_distance + 1, neighbor ) )

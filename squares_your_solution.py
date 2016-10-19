@@ -8,4 +8,4 @@ def min_square_sum( n ):
     # YOUR CODE HERE. Return an integer representing the minimum number of
     # perfect squares required to sum to n.
 
-    return min_num_squares # rename this or delete it if you'd like.
+    return 0

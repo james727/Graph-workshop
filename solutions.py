@@ -19,7 +19,7 @@ def paint_splash( pixels, click_point, target_color ):
     visited = set() # we'll track visited pixels in a hash set for fast lookup
 
     while len( queue ) > 0:
-        current = queue.pop( 0 )
+        current = queue.pop( 0 ) # inefficient, should use deque in practice
         new_neighbors = [ pixel for pixel in neighbors( current ) if pixel not in visited ]
         pixels[ current[ 0 ] ][ current[ 1 ] ] = target_color
 
@@ -45,7 +45,7 @@ def min_square_sum( n ):
         return [ m - ( i ** 2 ) for i in range(1, int( val ** 0.5 ) + 1 ) ]
 
     while len( queue ) > 0:
-        val, level = queue.pop( 0 )
+        val, level = queue.pop( 0 ) # inefficient, should use deque in practice
         if val in squares: return level # Sanity check - if n is perfect square, will return 1
         new_neighbors = [ neighbor for neighbor in neighbors( val ) if neighbor not in visited ]
 
