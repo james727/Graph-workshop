@@ -2,7 +2,7 @@ def get_neighbors( coords, pool ):
     m, n = len( pool ), len( pool[0] )
     x, y = coords
     return [ [ x + i, y + j ] for i, j in ( ( 1, 0 ), ( -1, 0 ), ( 0, 1 ), ( 0, -1 ) ) 
-            if 0 <= x + i < m and 0 <= y + j < n and pool[ x + i ][ y + j ] != 'x' ]
+            if 0 <= x + i < m and 0 <= y + j < n and pool[ x + i ][ y + j ] != 'X' ]
 
 def lifeguard_within_k_steps( pool, starting_coords, k ):
     queue = [ ( 0, starting_coords ) ] # set up data structures
