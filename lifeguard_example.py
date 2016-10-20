@@ -1,10 +1,8 @@
-def get_neighbors( pool_coords, pool ):
-    x, y = pool_coords
-    max_x, max_y = len( pool ), len( pool[ 0 ] )
-    potential_neighbors = [ ( x + 1, y ), ( x - 1, y ), ( x, y + 1 ), ( x, y - 1 ) ]
-    pool_bounds_filter = lambda z: 0 <= z[ 0 ] < max_x and 0 <= z[ 1 ] < max_y
-    rope_filter = lambda z: pool[ z[ 0 ] ][ z[ 1 ] ] != "X"
-    return filter( rope_filter, filter( pool_bounds_filter, potential_neighbors ) )
+def get_neighbors( coords, pool ):
+    m, n = len( pool ), len( pool[0] )
+    x, y = coords
+    return [ [ x + i, y + j ] for i, j in ( ( 1, 0 ), ( -1, 0 ), ( 0, 1 ), ( 0, -1 ) ) 
+            if 0 <= x + i < m and 0 <= y + j < n and pool[ x + i ][ y + j ] != 'x' ]
 
 def lifeguard_within_k_steps( pool, starting_coords, k ):
     queue = [ ( 0, starting_coords ) ] # set up data structures
